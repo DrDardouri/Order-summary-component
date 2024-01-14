@@ -1,0 +1,202 @@
+:root {
+    --clr-primary-400: rgb(56, 41, 224);
+    --clr-primary-200: hsl(225, 100%, 94%);
+
+    --clr-neutral-900: hsl(223, 47%, 23%);
+    --clr-neutral-400: hsl(224, 23%, 55%);
+    --clr-neutral-100: hsl(225, 100%, 98%);
+
+    --fw-regular: 500;
+    --fw-bold: 700;
+    --fw-black: 900;
+}
+
+/*
+    1. Use a more-intuitive box-sizing model.
+*/
+*, 
+*::before, 
+*::after {
+    box-sizing: border-box;
+}
+/*
+    2. Remove default margin
+*/
+* {
+    margin: 0;
+}
+/*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+*/
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+/*
+    5. Improve media defaults
+*/
+img, 
+picture, 
+video, 
+canvas, 
+svg {
+    display: block;
+    max-width: 100%;
+}
+/*
+    6. Remove built-in form typography styles
+*/
+input, 
+button, 
+textarea, 
+select {
+    font: inherit;
+}
+/*
+    7. Avoid text overflows
+*/
+p, 
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+    overflow-wrap: break-word;
+}
+
+h1, h2, h3 {
+    line-height: 1.1;
+}
+
+/* ===============
+    general styling
+==================*/
+
+body {
+    font-family: 'Red Hat Display', sans-serif;
+    background-image: url("images/pattern-background-mobile.svg");
+    background-size: cover;
+    background-color: var(--clr-neutral-100);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--clr-neutral-400);
+}
+
+.card {
+    max-width: 400px;
+    min-width: 400px;
+    margin: 0 2em;
+    background-color: hsl(0, 0%, 100%);
+    display: grid;
+    gap: 1.5em 2.25em;
+    grid-template: auto .25em auto auto auto auto auto .25em / 0px auto auto 0px;
+    grid-template-areas: 
+        "img img img img"
+        ". . . ."
+        ". h h ."
+        ". b b ."
+        ". p p. "
+        ". btnp btnp ."
+        ". c c ."
+        ". . . .";
+    border-radius: 1.25rem;
+    overflow: hidden;
+    text-align: center;
+}
+
+.card__img   { grid-area: img; }
+.card__title { grid-area: h; }
+.card__plan  { grid-area: p; }
+.proceed     { grid-area: btnp; }
+.cancel      { grid-area: c; }
+.card > p    { 
+    grid-area: b;
+    font-weight: var(--fw-regular);
+    color: var(--clr-neutral-400);
+}
+
+.card__plan {
+    
+    display: flex;
+    background-color: var(--clr-neutral-100);
+    padding: 1.5em;
+    border-radius: 0.6rem;
+}
+
+.card__plan > img {
+    border-radius: 50%;
+    margin-right: 1em;
+}
+
+.card__title {
+    color: var(--clr-neutral-900);
+    font-weight: var(--fw-black);
+}
+
+.plan__title {
+    color: var(--clr-neutral-900);
+    font-weight: var(--fw-black);
+
+}
+
+/* ===============
+    buttons
+==================*/
+
+.btn-change {
+    cursor: pointer;
+    border: none;
+    background-color: var(--clr-neutral-100);
+    text-decoration: underline;
+    font-weight: var(--fw-black);
+    color:  var(--clr-primary-400);
+    margin-left: auto;
+}
+
+.btn-change:is(:hover, :focus) {
+    color: rgba(56, 41, 224, .5);
+    text-decoration: none;
+}
+
+.button {
+    cursor: pointer;
+    text-decoration: none;
+    border: 0;
+    border-radius: 0.6rem;
+    font-weight: var(--fw-bold);
+    padding: .75rem 1.5rem;
+}
+
+.proceed {
+    background-color: var(--clr-primary-400);
+    color: #fff;
+    box-shadow: 0px 1.5em 1.5em rgba(56, 41, 224, .25);
+    
+}
+
+.proceed:is(:hover, :focus) {
+    background-color: rgba(56, 41, 224, .5);
+}
+
+.cancel {
+    background-color: rgba(255, 255, 255, 0);
+    color: var(--clr-neutral-400);
+    font-weight: var(--fw-black);
+}
+
+.cancel:is(:hover, :focus) {
+    color: var(--clr-neutral-900) ;
+}
+
+@media (min-width: 500px) {
+    body {
+        background-image: url(images/pattern-background-desktop.svg);
+        background-size: cover;
+        background-position: center top;
+    }
+}
